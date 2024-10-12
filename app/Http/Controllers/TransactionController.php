@@ -115,11 +115,6 @@ class TransactionController extends Controller
         return view('all_received')->with($data);
     }
 
-    public function get_()
-    {
-
-    }
-
     public function all_paid()
     {
         $all_paid = All_transaction::where('action','=','paid')->get();
@@ -149,7 +144,6 @@ class TransactionController extends Controller
             }
 
             // Finding in payables
-
             if(!is_null($entry_in_payable))
             {
                 foreach ($entry_in_payable as $entry)

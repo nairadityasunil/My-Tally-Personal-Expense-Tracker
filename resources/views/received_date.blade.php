@@ -38,7 +38,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($all_transactions as $transaction)
+                @foreach ($all_received as $transaction)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $transaction->id }}</td>
