@@ -20,6 +20,15 @@
         <div class="row">
             <x-side_navbar />
             <div class="col-sm-10 py-3">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-sm-5">
                         <div class="card">
@@ -35,7 +44,7 @@
                                             </div>
                                             <div class="col">
                                                 <input type="text" name="name" class="form-control" id="name"
-                                                    placeholder="" value="{{$name ?? ''}}">
+                                                    placeholder="" value="{{ $name ?? '' }}">
                                                 <br>
                                                 <button type="submit" class="btn btn-dark">Fetch Data</button>
                                                 <a href="{{ route('all_recievables') }}">

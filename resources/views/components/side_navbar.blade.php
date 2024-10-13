@@ -163,7 +163,7 @@
         <br>
     </div> -->
     <div>
-        <a href="{{route('user_mail_master')}}" class="btn btn-link navbar-hover"style = "color : black; text-decoration:none; text-align:justify">User & Mail Master</a>
+        <a href="{{route('user_mail_master')}}" class="btn btn-link navbar-hover"style = "color : black; text-decoration:none; text-align:justify">User Master</a>
         <br>
     </div>
 </div>

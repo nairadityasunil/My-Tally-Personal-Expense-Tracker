@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-sm-4">
                     <ul class="justify-content-end navbar-nav w-100 d-flex flex-row-end">
-                        <span class="text-white my-2" style="padding-right: 2vw; font-weight:bold;">User : {{session()->get('username')}} </span>
+                        <span class="text-warning my-2" style="padding-right: 2vw; font-weight:bold;">User : {{session()->get('username')}} </span>
                         <span>
                             <a href="{{route('login_page')}}">
                                 <button class="btn btn-danger" id="logout">Logout</button>

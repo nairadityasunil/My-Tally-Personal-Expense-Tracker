@@ -20,11 +20,20 @@
         <div class="row">
             <x-side_navbar />
             <div class="col-sm-10 py-3">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-sm-5">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{route('search_paid_name')}}" method="post">
+                                <form action="{{ route('search_paid_name') }}" method="post">
                                     @csrf
                                     <div class="col-sm-12">
                                         <div class="row">
@@ -38,7 +47,7 @@
                                                     placeholder="" value="">
                                                 <br>
                                                 <button type="submit" class="btn btn-dark">Fetch Data</button>
-                                                <a href="{{route('all_paid')}}">
+                                                <a href="{{ route('all_paid') }}">
                                                     <button type="button" class="btn btn-danger">Clear</button>
                                                 </a>
                                             </div>
@@ -79,7 +88,7 @@
                                             <div class="col-sm-2"></div>
                                             <div class="col">
                                                 <button type="submit" class="btn btn-dark">Fetch Data</button>
-                                                <a href="{{route('all_paid')}}">
+                                                <a href="{{ route('all_paid') }}">
                                                     <button type="button" class="btn btn-danger">Clear</button>
                                                 </a>
                                             </div>

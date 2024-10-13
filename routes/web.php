@@ -9,7 +9,7 @@ use App\Http\Controllers\User_Mail_Controller;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
-// Rotues for user authentication
+// Rotues for user authentication and login page
 Route::get('/',[LoginController::class,'login_page'])->name('login_page');
 Route::post('/authenticate',[LoginController::class,'authenticate_user'])->name('authenticate');
 
@@ -37,14 +37,13 @@ Route::get('/new_payable' ,[PayablesController::class, 'new_payable'])->name('ne
 Route::get('/confirm_payable/{id}' ,[PayablesController::class, 'confirm_payable'])->name('confirm_payable');
 Route::post('/save_new_payable',[PayablesController::class, 'save_new_payable'])->name('save_new_payable');
 Route::post('/save_payable',[PayablesController::class, 'save_payable'])->name('save_payable');
-Route::post('/search_payable',[PayablesController::class,'search_payable'])->name('search_payable');
 
 // Routes related to personal expense section
 Route::get('/all_personal_expense',[Personal_expenses::class,'view_all_personal_expense'])->name('all_personal_expense');
 Route::get('/new_personal_expense' ,[Personal_expenses::class, 'new_personal_expense'])->name('new_personal_expense');
 Route::post('/save_personal_expense',[Personal_expenses::class, 'save_personal_expense'])->name('save_personal_expense');
 
-// Routes related to Home
+// Routes related to dashboard
 Route::get('/home',[HomeController::class,'home'])->name('home');
 
 // Routes Related To reports
@@ -52,6 +51,9 @@ Route::post('/get_all_received',[TransactionController::class, 'get_all_received
 
 // Routes Related To User And Mail
 Route::get('/user_mail_master',[User_Mail_Controller::class,'user_mail_master'])->name('user_mail_master');
+Route::get('/user_update/{id}',[User_Mail_Controller::class , 'update_details'])->name('user_update');
+Route::post('/save_user_update',[User_Mail_Controller::class,'save_user_update'])->name('save_user_update');
+
 
 // All Routes Related To searching and filtering data
 // Routes to filter all transaction page
@@ -69,3 +71,11 @@ Route::post('/search_paid_date',[TransactionController::class,'search_paid_date'
 // Routes to filter receivables
 Route::post('/search_receivable_name',[RecievablesController::class,'search_receivable_name'])->name('search_receivable_name');
 Route::post('/search_receivable_date',[RecievablesController::class,'search_receivable_date'])->name('search_receivable_date');
+
+// Routes to filter payable
+Route::post('/search_payable_name',[PayablesController::class,'search_payable_name'])->name('search_payable_name');
+Route::post('/search_payable_date',[PayablesController::class,'search_payable_date'])->name('search_payable_date');
+
+// Routes to filer personal expenses
+Route::post('/search_personal_name',[Personal_expenses::class,'search_personal_name'])->name('search_personal_name');
+Route::post('/search_personal_date',[Personal_expenses::class,'search_personal_date'])->name('search_personal_date');

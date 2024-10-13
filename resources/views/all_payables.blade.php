@@ -20,11 +20,20 @@
         <div class="row">
             <x-side_navbar />
             <div class="col-sm-10 py-3">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-sm-5">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('search_paid_name') }}" method="post">
+                                <form action="{{ route('search_payable_name') }}" method="post">
                                     @csrf
                                     <div class="col-sm-12">
                                         <div class="row">
@@ -51,7 +60,7 @@
                     <div class="col-sm-7">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('search_paid_date') }}" method="post">
+                                <form action="{{ route('search_payable_date') }}" method="post">
                                     @csrf
                                     <div class="col-sm-12">
                                         <div class="row">

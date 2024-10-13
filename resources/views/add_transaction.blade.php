@@ -25,6 +25,15 @@
                         <div class="col-sm-7">
                             <div class="card" style="margin-top : 10px; max-height:93vh;">
                                 <div class="card-body overflow-auto">
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                                     <h1 class="text-center">New Transaction</h1>
                                     <br>
                                     <form action="{{ route('save_transaction') }}" method="POST">
@@ -183,10 +192,12 @@
                                                             <td>{{ $transaction->purpose }}</td>
                                                             @if ($transaction->action == 'received')
                                                                 <td style="color:green;">
-                                                                    <b>{{ $transaction->amount }}</b></td>
+                                                                    <b>{{ $transaction->amount }}</b>
+                                                                </td>
                                                             @else
                                                                 <td style="color:red;">
-                                                                    <b>{{ $transaction->amount }}</b></td>
+                                                                    <b>{{ $transaction->amount }}</b>
+                                                                </td>
                                                             @endif
                                                         </tr>
                                                     @endforeach

@@ -25,6 +25,15 @@
                         <div class="col-sm-7">
                             <div class="card" style="margin-top : 10px; max-height:93vh;">
                                 <div class="card-body overflow-auto">
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                                     <h1 class="text-center">New Receivable</h1>
                                     <br>
                                     <form action="{{ route('save_new_receivable') }}" method="POST">

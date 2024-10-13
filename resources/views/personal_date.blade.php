@@ -21,17 +21,17 @@
 <body>
     <div class="container-fluid">
         <center>
-            <h3>All Receivables</h3>
+            <h3>All Personal Expenses</h3>
         </center>
         <br>
         <b>From : </b><span>{{ $from }}</span><br>
         <b>To : </b><span>{{ $to }}</span>
-        <br><br>
+       <br><br> 
         <table class="table table-stripped table-hover border-dark text-center">
             <thead class="thead-dark" style="position:sticky; top:-17px;">
                 <tr>
                     <th>Sr no.</th>
-                    <th>Recievable Id</th>
+                    <th>Expense Id</th>
                     <th>Name</th>
                     <th>Purpose</th>
                     <th>Mode</th>
@@ -43,16 +43,16 @@
             </thead>
             <tbody>
 
-                @foreach ($all_recievables->reverse() as $recievables)
+                @foreach ($all_expenses->reverse() as $expenses)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $recievables->id }}</td>
-                        <td>{{ $recievables->name }}</td>
-                        <td>{{ $recievables->purpose }}</td>
-                        <td>{{ $recievables->mode }}</td>
-                        <td style="color:green;"><b>{{ $recievables->amount }}</b></td>
-                        <td>{{ $recievables->transaction_id }}</td>
-                        <td>{{ $recievables->created_at }}</td>
+                        <td>{{ $expenses->id }}</td>
+                        <td>{{ $expenses->name }}</td>
+                        <td>{{ $expenses->purpose }}</td>
+                        <td>{{ $expenses->mode }}</td>
+                        <td style="color:red;"><b>{{ $expenses->amount }}</b></td>
+                        <td>{{ $expenses->transaction_id }}</td>
+                        <td>{{ $expenses->created_at }}</td>
                     </tr>
                 @endforeach
             </tbody>
