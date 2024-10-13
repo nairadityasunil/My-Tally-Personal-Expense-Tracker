@@ -49,20 +49,12 @@ class RecievablesController extends Controller
 
     public function delete_receivable($id)
     {
-        $entry_id = Receivable::find($id);
+        $entry_id = Recievable::find($id);
         if(!is_null($entry_id))
         {
             $entry_id->delete();
         }
         return redirect('/all_recievables');
-    }
-
-    public function search_receivable(Request $request)
-    {
-        $name = $request['name'];
-        $all_recievables = Recievable::where('name' , 'LIKE' , "%$name%")->get();
-        $data = compact('all_recievables' , 'name');
-        return view('all_recievables')->with($data);
     }
 
     public function new_receivable()
@@ -99,4 +91,24 @@ class RecievablesController extends Controller
         }
 
     }
+
+    
+    public function search_receivable_name(Request $request)
+    {
+        $name = $request['name'];
+        $all_recievables = Recievable::where('name' , 'LIKE' , "%$name%")->get();
+        $data = compact('all_recievables' , 'name');
+        return view('all_recievables')->with($data);
+    }
+
+
+    public function search_receivable_date(Request $request)
+    {
+        $from = $request['from_date'];
+        $to = $request['to_date'];
+        $all_recievables = All_transaction::whereBetween('created_at',[$from.' 00:00:00', $to.' 23:59:59'])->get();
+        $data = compact('all_recievables','from','to');
+        return view('receivable_date');
+    }
+    
 }

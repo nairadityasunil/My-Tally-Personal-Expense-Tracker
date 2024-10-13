@@ -24,7 +24,8 @@
                     <div class="col-sm-5">
                         <div class="card">
                             <div class="card-body">
-                                <form action="" method="post">
+                                <form action="{{route('search_transaction_name')}}" method="post">
+                                    @csrf
                                     <div class="col-sm-12">
                                         <div class="row">
                                             <div class="col">
@@ -37,8 +38,8 @@
                                                     placeholder="" value="">
                                                 <br>
                                                 <button type="submit" class="btn btn-dark">Fetch Data</button>
-                                                <a href="">
-                                                    <button type="button" class="btn btn-danger">Clear Form</button>
+                                                <a href="{{route('all_transactions')}}">
+                                                    <button type="button" class="btn btn-danger">Clear</button>
                                                 </a>
                                             </div>
                                         </div>
@@ -50,7 +51,8 @@
                     <div class="col-sm-7">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('get_all_received') }}" method="post">
+                                <form action="{{ route('search_transaction_date') }}" method="post">
+                                    @csrf
                                     <div class="col-sm-12">
                                         <div class="row">
                                             <div class="col-sm-2">
@@ -78,7 +80,7 @@
                                             <div class="col">
                                                 <button type="submit" class="btn btn-dark">Fetch Data</button>
                                                 <a href="">
-                                                    <button type="button" class="btn btn-danger">Clear Form</button>
+                                                    <button type="button" class="btn btn-danger">Clear</button>
                                                 </a>
                                             </div>
                                         </div>

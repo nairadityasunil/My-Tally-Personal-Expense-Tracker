@@ -24,7 +24,8 @@
                     <div class="col-sm-5">
                         <div class="card">
                             <div class="card-body">
-                                <form action="" method="post">
+                                <form action="{{route('search_paid_name')}}" method="post">
+                                    @csrf
                                     <div class="col-sm-12">
                                         <div class="row">
                                             <div class="col">
@@ -37,8 +38,8 @@
                                                     placeholder="" value="">
                                                 <br>
                                                 <button type="submit" class="btn btn-dark">Fetch Data</button>
-                                                <a href="">
-                                                    <button type="button" class="btn btn-danger">Clear Form</button>
+                                                <a href="{{route('all_paid')}}">
+                                                    <button type="button" class="btn btn-danger">Clear</button>
                                                 </a>
                                             </div>
                                         </div>
@@ -50,7 +51,8 @@
                     <div class="col-sm-7">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('get_all_received') }}" method="post">
+                                <form action="{{ route('search_paid_date') }}" method="post">
+                                    @csrf
                                     <div class="col-sm-12">
                                         <div class="row">
                                             <div class="col-sm-2">
@@ -77,8 +79,8 @@
                                             <div class="col-sm-2"></div>
                                             <div class="col">
                                                 <button type="submit" class="btn btn-dark">Fetch Data</button>
-                                                <a href="">
-                                                    <button type="button" class="btn btn-danger">Clear Form</button>
+                                                <a href="{{route('all_paid')}}">
+                                                    <button type="button" class="btn btn-danger">Clear</button>
                                                 </a>
                                             </div>
                                         </div>
@@ -93,20 +95,10 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-4 px-4">
-                                <!-- <a href="">
-                                    <button type="button" class="btn _btn">New Transaction</button>
-                                </a>
-                                <a href="">
-                                    <button type="button" class="btn _btn">New Receivable</button>
-                                </a>
-                                <a href="">
-                                    <button type="button" class="btn _btn">New Payable</button>
-                                </a> -->
-
                             </div>
                             <div class="col-sm-4">
                                 <center>
-                                    <h3>Paid Transactions</h3>
+                                    <h3>All Payments</h3>
                                 </center>
                             </div>
                             <div class="col-sm-4" style="justify-content:end;">
@@ -126,10 +118,7 @@
                                         <th>Action</th>
                                         <th>Mode</th>
                                         <th>Amount</th>
-                                        <!-- <th>View</th> -->
                                         <th>Date & Time</th>
-                                        <th>Update</th>
-                                        <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -149,14 +138,6 @@
                                             <td>{{ $transactions->mode }}</td>
                                             <td style="color:red;"><b>{{ $transactions->amount }}</b></td>
                                             <td>{{ $transactions->created_at }}</td>
-                                            <td>
-                                                <a href="">
-                                                    <button type="button" class="btn _btn">Print</button>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <button type="button" class="btn _btn">Delete</button>
-                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

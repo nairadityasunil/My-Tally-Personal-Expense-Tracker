@@ -21,35 +21,36 @@
 <body>
     <div class="container-fluid">
         <center>
-            <h3>All Receipts</h3>
+            <h3>All Receivables</h3>
         </center>
-        <br>
         <b>From : </b><span>{{ $from }}</span><br>
         <b>To : </b><span>{{ $to }}</span>
-        <br>
-        <br>
-        <table class="table text-center table-bordered">
-            <thead class="table-dark">
+        <table class="table table-stripped table-hover border-dark text-center">
+            <thead class="thead-dark" style="position:sticky; top:-17px;">
                 <tr>
-                    <th>Sr.no</th>
-                    <th>Transaction Id</th>
+                    <th>Sr no.</th>
+                    <th>Recievable Id</th>
                     <th>Name</th>
                     <th>Purpose</th>
-                    <th>Action</th>
                     <th>Mode</th>
                     <th>Amount</th>
+                    <th>Transaction Id</th>
+                    <!-- <th>View</th> -->
+                    <th>Date & Time</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($all_received as $transaction)
+
+                @foreach ($all_recievables->reverse() as $recievables)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $transaction->id }}</td>
-                        <td>{{ $transaction->name }}</td>
-                        <td>{{ $transaction->purpose }}</td>
-                        <td>{{ $transaction->action }}</td>
-                        <td>{{ $transaction->mode }}</td>
-                        <td>{{ $transaction->amount }}</td>
+                        <td>{{ $recievables->id }}</td>
+                        <td>{{ $recievables->name }}</td>
+                        <td>{{ $recievables->purpose }}</td>
+                        <td>{{ $recievables->mode }}</td>
+                        <td style="color:green;"><b>{{ $recievables->amount }}</b></td>
+                        <td>{{ $recievables->transaction_id }}</td>
+                        <td>{{ $recievables->created_at }}</td>
                     </tr>
                 @endforeach
             </tbody>

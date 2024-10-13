@@ -11,6 +11,10 @@ class LoginController extends Controller
 
     public function login_page()
     {
+        if(session()->has('username'))
+        {
+            session()->forget('username');
+        }
         return view('login_page');
     }
 

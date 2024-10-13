@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ URL::asset('frontend/css/bootstrap.min.css') }}">
     <script type="text/javascript" src="{{ URL::asset('frontend/javascript/bootstrap.min.js') }}"></script>
     <script type="text/javascript " src="{{ URL::asset('frontend/javascript/bootstrap.bundle.min.js') }}"></script>
-    <link rel="stylesheet" href="{{ URL::asset('frontend/css/style.css') }}">
+    {{-- <link rel="stylesheet" href="{{ URL::asset('frontend/css/style.css') }}"> --}}
     <script>
         function print_clk()
         {
@@ -53,7 +53,7 @@
         </table>
     </div>
     <center>
-        <button class="btn btn-light" id="btn_print" onclick="print_clk()">Print</button>
+        <button class="btn btn-primary" id="btn_print" onclick="print_clk()">Print</button>
     </center>
 </body>
 

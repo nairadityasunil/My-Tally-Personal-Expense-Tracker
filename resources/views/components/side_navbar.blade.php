@@ -105,10 +105,10 @@
                 <a href="{{route('add_transaction')}}" class="a-hover btn btn-link navbar-hover" style = "color : white; text-decoration:none; text-align:justify">New Transaction</a>
             </div>
             <div class="menu-item">
-                <a href="{{route('all_received')}}" class="a-hover btn btn-link navbar-hover" style = "color : white; text-decoration:none; text-align:justify">All Received</a>
+                <a href="{{route('all_received')}}" class="a-hover btn btn-link navbar-hover" style = "color : white; text-decoration:none; text-align:justify">All Receipts</a>
             </div>
             <div class="menu-item">
-                <a href="{{route('all_paid')}}" class="a-hover btn btn-link navbar-hover" style = "color : white; text-decoration:none; text-align:justify">All Paid</a>
+                <a href="{{route('all_paid')}}" class="a-hover btn btn-link navbar-hover" style = "color : white; text-decoration:none; text-align:justify">All Payments</a>
             </div>
             <div class="menu-item a-hover">
                 <a href="{{route('all_transactions')}}" class="a-hover btn btn-link navbar-hover" style = "color : white; text-decoration:none; text-align:justify">All Transactions</a>

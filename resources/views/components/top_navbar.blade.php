@@ -40,9 +40,9 @@
                 </div>
                 <div class="col-sm-4">
                     <ul class="justify-content-end navbar-nav w-100 d-flex flex-row-end">
-                        <span class="text-white my-2" style="padding-right: 2vw; font-weight:bold;">{{session()->get('username')}} </span>
+                        <span class="text-white my-2" style="padding-right: 2vw; font-weight:bold;">User : {{session()->get('username')}} </span>
                         <span>
-                            <a href="">
+                            <a href="{{route('login_page')}}">
                                 <button class="btn btn-danger" id="logout">Logout</button>
                             </a>
                         </span>
@@ -81,6 +81,10 @@
         if (sec<10)
         {
             sec = "0"+sec;
+        }
+        if(mins<10)
+        {
+            mins = "0"+mins;
         }
         document.getElementById('hours').innerHTML = hrs;
         document.getElementById('minutes').innerHTML = mins;

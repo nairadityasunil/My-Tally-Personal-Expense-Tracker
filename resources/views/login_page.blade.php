@@ -45,25 +45,29 @@
 
         .card-body h4 {
             margin-bottom: 2rem;
-            color: #04444D; /* Heading color */
+            color: #04444D;
+            /* Heading color */
         }
 
         input {
             background: #e6e6e6 !important;
             box-shadow: 4px 0px 2px -2px rgba(0, 0, 0, 0.2) !important;
             font-weight: bold !important;
-            text-align: center; /* Center text inside input */
+            text-align: center;
+            /* Center text inside input */
         }
 
         #submit_btn {
             background: #04444D !important;
             color: white !important;
             border: 2px solid #04444D;
-            width: 100%; /* Full width */
+            width: 100%;
+            /* Full width */
         }
 
         .btn {
-            border-radius: 25px; /* Rounded button */
+            border-radius: 25px;
+            /* Rounded button */
         }
 
         .error-message {
@@ -82,7 +86,7 @@
             <h4 class="text-center">Login</h4>
 
             <!-- Display the error message if it exists in the session -->
-            @if(session('status'))
+            @if (session('status'))
                 <div class="error-message">
                     {{ session('status') }}
                 </div>

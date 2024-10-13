@@ -206,7 +206,7 @@ class TransactionController extends Controller
     public function search_transaction_name(Request $request)
     {
         $name = $request['name']; // Fetch the name from the form
-        $all_transactions = All_transaction::where('name','LIKE',"%$name");
+        $all_transactions = All_transaction::where('name','LIKE',"%$name")->get();
         $data = compact('all_transactions','name');
         return view('all_transactions')->with($data);
     }
@@ -218,14 +218,14 @@ class TransactionController extends Controller
         $to = $request->to_date;
         $all_transactions = All_transaction::whereBetween('created_at',[$from.' 00:00:00', $to.' 23:59:59'])->get(); // Retrieve all records between a particular date range
         $data = compact('all_transactions','from','to');
-        return view('transactions_date')->with($data);
+        return view('transaction_date')->with($data);
     }
 
     // Function to filter all received by name
     public function search_received_name(Request $request)
     {
         $name = $request['name'];
-        $all_received = All_transaction::where('action','=','received')->where('name','LIKE',"%$name");
+        $all_received = All_transaction::where('action','=','received')->where('name','LIKE',"%$name")->get();
         $data = compact('all_received','name');
         return view('all_received')->with($data);
     }
@@ -244,7 +244,7 @@ class TransactionController extends Controller
     public function search_paid_name(Request $request)
     {
         $name = $request['name'];
-        $all_paid = All_transaction::where('action','=','paid')->where('name','LIKE',"%$name");
+        $all_paid = All_transaction::where('action','=','paid')->where('name','LIKE',"%$name")->get();
         $data = compact('all_paid','name');
         return view('all_paid')->with($data);
     }
@@ -310,5 +310,7 @@ class TransactionController extends Controller
             }
         }
     }
+
+
 }
 
